@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Image} from 'react-native';
 import { StyleSheet,View, TouchableOpacity } from "react-native";
+import { Dropdown } from "react-native-material-dropdown";
 import {
   Container,
   Header,
@@ -21,33 +22,11 @@ export default class Zones extends Component {
   render() {
   const { navigation } = this.props;
   const displayHeader = { BackBtn: false, MenuBtn:false };
+  let data = [{ value: "Sora" }, { value: "Kira" }, { value: "Exec Office" }, { value: "Exec Office" }];
     return <Container>
         <HeaderComponent navigation={navigation} displayHeader={displayHeader} />
         <Content>
-          <Card>
-            <CardItem button onPress={() => navigation.navigate(
-                  "Temperature",
-                  { zoneId: 1234 }
-                )}>
-              <Icon active name="home" style={styles.iconColor} />
-              <Text>Home</Text>
-              <Right>
-                <Icon name="arrow-forward" />
-              </Right>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button onPress={() => navigation.navigate(
-                  "Temperature",
-                  { zoneId: 54321 }
-                )}>
-              <Image source={require("HVAC/assets/Images/office.png")} style={styles.imageSize} />
-              <Text>Office</Text>
-              <Right>
-                <Icon name="arrow-forward" />
-              </Right>
-            </CardItem>
-          </Card>
+          <Dropdown label="Select Zone" data={data} padder/>
         </Content>
       </Container>;
   }

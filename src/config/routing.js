@@ -32,7 +32,7 @@ const RootStack = StackNavigator(
     }
   },
   {
-    initialRouteName: "Zones",
+    initialRouteName: "Temperature",
     navigationOptions: {
       header: null
     }
