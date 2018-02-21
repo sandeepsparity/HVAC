@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTCxxConvert.m \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTCxxConvert.h
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTCxxConvert.m \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTCxxConvert.h
