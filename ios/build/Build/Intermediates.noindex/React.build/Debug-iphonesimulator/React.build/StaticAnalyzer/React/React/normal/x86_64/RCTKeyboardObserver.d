@@ -1,0 +1,12 @@
+dependencies: \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Modules/RCTKeyboardObserver.m \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Modules/RCTKeyboardObserver.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Modules/RCTEventEmitter.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTEventDispatcher.h
