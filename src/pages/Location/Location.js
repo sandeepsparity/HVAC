@@ -8,8 +8,8 @@ import {
   Button,
   Icon
 } from "native-base";
-import HeaderComponent from "../headerComponent";
-import FooterComponent from "../footer";
+import HeaderComponent from "../../headerComponent";
+import FooterComponent from "../../footer";
 export default class Location extends Component {
   state = {};
   render() {

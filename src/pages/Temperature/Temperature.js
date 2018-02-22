@@ -6,30 +6,51 @@ import {
   Footer,
   FooterTab,
   Button,
-  Icon
+  Icon,
+  Drawer,
+  H2,
+  H3
 } from "native-base";
-import { Fonts } from '../utils/Fonts';
-import HeaderComponent from "../headerComponent";
-import FooterComponent from "../footer";
-import Learning from "./Lighting";
-import { putData } from "../common/httpRequest";
-import {  endPoints } from "../config/endPoints";
-import SpinnerComponent from '../common/spinner';
+import { Fonts } from '../../utils/Fonts';
+import HeaderComponent from "../../headerComponent";
+import FooterComponent from "../../footer";
+import Lighting from "../Lighting/Lighting";
+import { putData } from "../../common/httpRequest";
+import {  endPoints } from "../../config/endPoints";
+import SpinnerComponent from '../../common/spinner';
+import SideBar from '../../components/SideBar/SideBar';
 import { Dropdown } from "react-native-material-dropdown";
-export default class Feedback extends React.Component {
-                 state = { temperature: {}, zone: "Sora", loader: true };
-
-                 componentDidMount() {
+export default class Temperature extends React.Component {
+  constructor(props){
+    super(props);
+    // TODO userSelectedZoneName -> Hardcoded zoneName : which need to come to backend API
+    this.state = { temperature: {},userSelectedZoneName: "Sora", loader: true };
+    this.temperatureData = this.temperatureData.bind(this)
+  }   
+       componentDidMount() {
                   this._interval = setInterval(() => {
-                    this.getTemeratureRecords();
+                    this.getTemperatureRecords();
                   }, 5000);
                   
                  }
                  componentWillUnmount() {
                   clearInterval(this._interval);
                 }
+                closeDrawer = () => {
+                  this.drawer._root.close()
+                };
+                openDrawer = () => {
+                  this.drawer._root.open()
+                };
+                temperatureData(userSelectedZoneParameters, userSelectedZoneName){
+                  this.setState({
+                    temperature : userSelectedZoneParameters,
+                    userSelectedZoneName:userSelectedZoneParameters.zoneName 
+                  })
+                 
+                }
 
-                 getTemeratureRecords() {
+                getTemperatureRecords() {
                    let url = endPoints.AWS + "temperature?zone_id=1001";
                   fetch(url)
                      .then(response => response.json())
@@ -38,21 +59,17 @@ export default class Feedback extends React.Component {
                          temperature: result,
                          loader: false
                        })
-                      }
-                     ); 
+                      }).catch(error => console.error(error));; 
                  }
 
                  updateCurrentTemperature(coolAbove, heatBelow, zone_id) {
-                   console.warn(coolAbove);
-                   console.warn(heatBelow);
                    let url = endPoints.AWS + "temperature?zone_id=" + zone_id;
                    putData(url, {
                     "cool_above": coolAbove,
                     "heat_below": heatBelow
                    })
                      .then(data => {
-                       console.warn(data)
-                       this.getTemeratureRecords();
+                       this.getTemperatureRecords();
                      }) 
                      .catch(error => console.error(error));
                  }
@@ -76,23 +93,25 @@ export default class Feedback extends React.Component {
                   let heatBelowTemperature = temperature.room_temperature + 15;  
                   this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature, zone_id);
                  }
-                 changeZone(text) {
-                   this.getTemeratureRecords();
-                 }
                  render() {
                    const { navigation } = this.props;
-                   const displayHeader = { BackBtn: false, MenuBtn: false };
-                   let data = [{ value: "Sora" }, { value: "Kira" }, { value: "Exec Office" }, { value: "Office" }];
+                   const displayHeader = { BackBtn: false, MenuBtn: true };
                    if (this.state.loader) {
                      return <SpinnerComponent/>;
                    }
-
-                   return <Container>
-                       <HeaderComponent displayHeader={displayHeader} navigation={navigation} />
+                   
+                   return (
+                    <Drawer
+                    ref={(ref) => { this.drawer = ref; }}
+                    content={<SideBar navigation={navigation} closeDrawer = {this.closeDrawer} temperatureData = {this.temperatureData}/>}
+                    onClose={() => this.closeDrawer()} >
+                   <Container>
+                       <HeaderComponent displayHeader={displayHeader} navigation={navigation}  openDrawer = {this.openDrawer}/>
                        <Content padder style={styles.content}>
                          <View>
-                           <Dropdown label="Select Zone" data={data} value={this.state.zone} padder onChangeText={zone => this.changeZone(zone)} />
-                           <View style={styles.container}>
+                          <H2 style={styles.centerAlign}>User Picked Zone : </H2>
+                          <H3 style={styles.centerAlign}>{this.state.userSelectedZoneName}  </H3>
+                           <View style={styles.temperatureWrapper}>
                              <Text style={styles.temperatureLabel}>
                                <Text style={styles.temp}>
                                  {
@@ -140,7 +159,9 @@ export default class Feedback extends React.Component {
                          </View>
                        </Content>
                        <FooterComponent navigation={navigation} />
-                     </Container>;
+                                </Container>
+                                </Drawer>
+                                );
                  }
                }
 
@@ -158,9 +179,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "black"
   },
-  container: {
-    padding: 20,
-    margin: 20,
+  temperatureWrapper: {
+    padding: 10,
+    margin: 10,
     flex: 1,
     flexDirection: "row",
     alignItems: "baseline",
@@ -216,5 +237,10 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     height: 60
+  },
+  centerAlign:{
+    textAlign:'center',
+    color:'#b1b5b8',
+    fontFamily: Fonts.MontSerratBold
   }
 });

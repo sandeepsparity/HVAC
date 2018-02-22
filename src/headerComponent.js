@@ -31,12 +31,12 @@ export default class HeaderComponent extends React.Component {
                      /* Hide or Show Menu Item - True or false */
                    }
 
-                   const rightMenu = MenuBtn ? <Button transparent>
+                   const rightMenu = MenuBtn ? <Button transparent onPress={() => this.props.openDrawer()}>
                        <Icon name="menu" />
                      </Button> : null;
                      
 
-                   return <Header style={styles.header}>
+                   return (<Header style={styles.header}>
                        <Left>
                          {leftArrow}
                        </Left>
@@ -44,7 +44,7 @@ export default class HeaderComponent extends React.Component {
                          <Title>{titleName}</Title>
                        </Body>
                        <Right>{rightMenu}</Right>
-                     </Header>;
+                   </Header>);
                  }
                }
 const styles = StyleSheet.create({

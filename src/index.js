@@ -1,9 +1,9 @@
-import Zones from "./pages/Zones";
-import Learning from "./pages/Learning";
-import Location from "./pages/Location";
-import Lighting from "./pages/Lighting";
-import Feedback from "./pages/Feedback";
-import Temperature from "./pages/Temperature";
+import Zones from "./pages/Zones/Zones";
+import Learning from "./pages/Learning/Learning";
+import Location from "./pages/Location/Location";
+import Lighting from "./pages/Lighting/Lighting";
+import Feedback from "./pages/Feedback/Feedback";
+import Temperature from "./pages/Temperature/Temperature";
 
 
 

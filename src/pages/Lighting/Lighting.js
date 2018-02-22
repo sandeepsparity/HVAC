@@ -8,10 +8,10 @@ import {
   Button,
   Icon
 } from "native-base";
-import { Fonts } from "../utils/Fonts";
-import  LightingSlider from '../components/LightingSlider';
-import HeaderComponent from "../headerComponent";
-import FooterComponent from "../footer";
+import { Fonts } from "../../utils/Fonts";
+//import  LightingSlider from '../../components/LightingSlider';
+import HeaderComponent from "../../headerComponent";
+import FooterComponent from "../../footer";
 export default class Lighting extends Component {
     state = {  }
     render() {
@@ -21,7 +21,7 @@ export default class Lighting extends Component {
               <HeaderComponent displayHeader={displayHeader} navigation={navigation} />
               <Content padder>
                 <View>
-                  <LightingSlider/>
+                 
                 </View>
               </Content>
               <FooterComponent navigation={navigation} />

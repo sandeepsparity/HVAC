@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {Image} from 'react-native';
-import { StyleSheet,View, TouchableOpacity } from "react-native";
+import {StyleSheet,View, TouchableOpacity,Image} from 'react-native';
 import { Dropdown } from "react-native-material-dropdown";
 import {
   Container,
@@ -15,9 +14,9 @@ import {
 } from "native-base";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import HeaderComponent from '../headerComponent';
-import Temperature from "./Temperature"; 
-import Location from "./Location";
+import HeaderComponent from '../../headerComponent';
+//import Temperature from "./../Temperature"; 
+//import Location from "./../Location";
 export default class Zones extends Component {
   render() {
   const { navigation } = this.props;
