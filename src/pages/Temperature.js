@@ -17,41 +17,40 @@ import {  endPoints } from "../config/endPoints";
 import SpinnerComp from '../common/spinner';
 import { Dropdown } from "react-native-material-dropdown";
 export default class Feedback extends React.Component {
-                 state = { humadity: {}, zone: "Sora", loader: true };
+                 state = { temperature: {}, zone: "Sora", loader: true };
 
                  componentDidMount() {
                    this.getTemeratureRecords();
                  }
 
                  getTemeratureRecords() {
-                   let humadity = { room_temperature: 75, 
-                    temperature_scale: "F", heating_point: 73, cooling_point: 77, pressure: 2.37 };
-                  fetch("https://jsonplaceholder.typicode.com/posts/1")
+                   let url = endPoints.AWS + "temperature?zone_id=1001";
+                  fetch(url)
                      .then(response => response.json())
-                     .then(data =>
+                     .then(result =>
                        this.setState({
-                         humadity: humadity,
+                         temperature: result,
                          loader: false
                        })
                      ); 
                  }
 
-                 updateCurrentTemperature(humadity, tenantId, roomId) {
+                 updateCurrentTemperature(temperature, tenantId, roomId) {
                    let url = endPoints.AWS + "temperature?tenantId=" + tenantId + "&roomId=" + roomId;
                    putData(url, {
-                     temperature: humadity,
+                     temperature: temperature,
                      temperatureScale: "F"
                    })
                      .then(data => {
-                       console.warn(data);
                        this.getTemeratureRecords();
-                     }) // JSON from `response.json()` call
+                     }) 
                      .catch(error => console.error(error));
                  }
 
                  increaseTemperature() {
+                  console.log(this.state);
                    let new_room_temperature = this.state.cooling_point + 15;
-                   this.updateCurrentTemperature(new_room_temperature);
+                  // this.updateCurrentTemperature(new_room_temperature);
                    console.warn(this.state.heating_point + 15);
                  }
                  decrementTemperature() {
@@ -78,8 +77,7 @@ export default class Feedback extends React.Component {
                              <Text style={styles.temperatureLabel}>
                                <Text style={styles.temp}>
                                  {
-                                   this.state.humadity
-                                     .room_temperature
+                                  parseInt(this.state.temperature.room_temperature)
                                  }
                                </Text>
                                <Text

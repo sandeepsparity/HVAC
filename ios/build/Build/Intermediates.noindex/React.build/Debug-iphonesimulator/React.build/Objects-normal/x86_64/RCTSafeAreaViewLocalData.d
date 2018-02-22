@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.m \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.h
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.m \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.h

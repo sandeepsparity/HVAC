@@ -1,0 +1,24 @@
+{
+    "results":[
+    {
+        "id": 1,  
+        "temperature": "70",
+        "zoneName": "Sora"    
+    },
+    {
+        "id": 2,
+        "temperature": "80",
+        "zoneName": "Kira"    
+    },
+    {
+        "id": 3,
+        "temperature": "50",
+        "zoneName": "HR Office"     
+    },
+    {
+        "id": 4,
+        "temperature": "65",
+        "zoneName": "EO Office"     
+    }
+]
+}

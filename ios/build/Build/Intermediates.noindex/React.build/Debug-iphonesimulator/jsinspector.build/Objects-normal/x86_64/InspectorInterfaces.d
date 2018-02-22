@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/sandeepmankala/Local/HVAC/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.cpp \
-  /Users/sandeepmankala/Local/HVAC/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.h
+  /Users/smankala/HVAC/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.cpp \
+  /Users/smankala/HVAC/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.h

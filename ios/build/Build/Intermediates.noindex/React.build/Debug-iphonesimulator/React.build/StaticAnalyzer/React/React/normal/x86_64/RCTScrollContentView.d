@@ -1,22 +1,22 @@
 dependencies: \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/RCTView.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/RCTBorderStyle.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/RCTComponent.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/RCTPointerEvents.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/UIView+React.h \
-  /Users/sandeepmankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/sandeepmankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollView.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/RCTAutoInsetsProtocol.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTEventDispatcher.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/sandeepmankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollableProtocol.h
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.m \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollContentView.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/RCTView.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollView.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/RCTAutoInsetsProtocol.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/smankala/HVAC/node_modules/react-native/React/Views/ScrollView/RCTScrollableProtocol.h
