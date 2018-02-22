@@ -20,42 +20,61 @@ export default class Feedback extends React.Component {
                  state = { temperature: {}, zone: "Sora", loader: true };
 
                  componentDidMount() {
-                   this.getTemeratureRecords();
+                  this._interval = setInterval(() => {
+                    this.getTemeratureRecords();
+                  }, 5000);
+                  
                  }
+                 componentWillUnmount() {
+                  clearInterval(this._interval);
+                }
 
                  getTemeratureRecords() {
                    let url = endPoints.AWS + "temperature?zone_id=1001";
                   fetch(url)
                      .then(response => response.json())
-                     .then(result =>
+                     .then(result => {
                        this.setState({
                          temperature: result,
                          loader: false
                        })
+                      }
                      ); 
                  }
 
-                 updateCurrentTemperature(temperature, tenantId, roomId) {
-                   let url = endPoints.AWS + "temperature?tenantId=" + tenantId + "&roomId=" + roomId;
+                 updateCurrentTemperature(coolAbove, heatBelow, zone_id) {
+                   console.warn(coolAbove);
+                   console.warn(heatBelow);
+                   let url = endPoints.AWS + "temperature?zone_id=" + zone_id;
                    putData(url, {
-                     temperature: temperature,
-                     temperatureScale: "F"
+                    "cool_above": coolAbove,
+                    "heat_below": heatBelow
                    })
                      .then(data => {
+                       console.warn(data)
                        this.getTemeratureRecords();
                      }) 
                      .catch(error => console.error(error));
                  }
-
-                 increaseTemperature() {
-                  console.log(this.state);
-                   let new_room_temperature = this.state.cooling_point + 15;
-                  // this.updateCurrentTemperature(new_room_temperature);
-                   console.warn(this.state.heating_point + 15);
-                 }
-                 decrementTemperature() {
-                   let new_room_temperature = this.state.cooling_point - 15;
-                   this.updateCurrentTemperature(new_room_temperature);
+                // Warm my place  -> set heating point to currentTemperature - 15 F
+                // This method is used to warm the place
+                 warmMyPlace() {
+                  let temperature = this.state.temperature;
+                  let zone_id = temperature.zone_id
+                  let coolAboveTemperature = temperature.cool_above ;
+                  // heatBelowTemperature = (room_temperature) Current Temperature - 15 
+                  let heatBelowTemperature = temperature.room_temperature - 15;  
+                  this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature,zone_id);
+                   }
+                // This method is used to cool the place
+                // Cool my place  -> set heating point to currentTemperature + 15 F
+                 coolMyPlace() {
+                  let temperature = this.state.temperature;
+                  let zone_id = temperature.zone_id
+                   // heatBelowTemperature = (room_temperature) Current Temperature - 15 
+                  let coolAboveTemperature = temperature.cool_above ;
+                  let heatBelowTemperature = temperature.room_temperature + 15;  
+                  this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature, zone_id);
                  }
                  changeZone(text) {
                    this.getTemeratureRecords();
@@ -98,7 +117,7 @@ export default class Feedback extends React.Component {
                          </View>
                          <View>
                            <TouchableOpacity>
-                             <Button block light style={styles.buttonIncrement} onPress={() => this.increaseTemperature()}>
+                             <Button block light style={styles.buttonIncrement} onPress={() => this.warmMyPlace()}>
                                <Text style={styles.textFont}>
                                  WARM MY PLACE
                                </Text>
@@ -112,7 +131,7 @@ export default class Feedback extends React.Component {
                              </Button>
                            </TouchableOpacity>
                            <TouchableOpacity>
-                             <Button block success style={styles.buttonDecrement} onPress={() => this.decrementTemperature()}>
+                             <Button block success style={styles.buttonDecrement} onPress={() => this.coolMyPlace()}>
                                <Text style={styles.textFont}>
                                  COOL MY PLACE
                                </Text>

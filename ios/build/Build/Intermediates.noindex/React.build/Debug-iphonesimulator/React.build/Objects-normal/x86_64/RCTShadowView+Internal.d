@@ -11,6 +11,4 @@ dependencies: \
   /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTBridgeModule.h \
   /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTFrameUpdate.h \
   /Users/smankala/HVAC/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
-  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h
+  /Users/smankala/HVAC/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h

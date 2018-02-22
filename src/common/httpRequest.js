@@ -1,14 +1,3 @@
-export const getRequest = () => {
-  return 'sandeep';
-}
-export const putRequest = () => {
-  return 'sandeep';
-}
-export const postRequest = () => {
-  return 'sandeep';
-}
-
-
  export const putData = (url, data) => {
   // Default options are marked with *
   return fetch(url, {
@@ -19,7 +8,7 @@ export const postRequest = () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-    method: 'POST', // *GET, PUT, DELETE, etc.
+    method: 'PUT', // *GET, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *same-origin
     redirect: 'follow', // *manual, error
     referrer: 'no-referrer', // *client
