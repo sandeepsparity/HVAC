@@ -14,7 +14,7 @@ import FooterComponent from "../footer";
 import Learning from "./Lighting";
 import { putData } from "../common/httpRequest";
 import {  endPoints } from "../config/endPoints";
-import SpinnerComp from '../common/spinner';
+import SpinnerComponent from '../common/spinner';
 import { Dropdown } from "react-native-material-dropdown";
 export default class Feedback extends React.Component {
                  state = { temperature: {}, zone: "Sora", loader: true };
@@ -62,10 +62,10 @@ export default class Feedback extends React.Component {
                  }
                  render() {
                    const { navigation } = this.props;
-                   const displayHeader = { BackBtn: true, MenuBtn: false };
+                   const displayHeader = { BackBtn: false, MenuBtn: false };
                    let data = [{ value: "Sora" }, { value: "Kira" }, { value: "Exec Office" }, { value: "Office" }];
                    if (this.state.loader) {
-                     return <SpinnerComp />;
+                     return <SpinnerComponent/>;
                    }
 
                    return <Container>
