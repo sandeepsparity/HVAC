@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity} from "react-native";
 import {
   Container,
   Content,
@@ -9,7 +9,8 @@ import {
   Icon,
   Drawer,
   H2,
-  H3
+  H3,
+  Toast
 } from "native-base";
 import { Fonts } from '../../utils/Fonts';
 import HeaderComponent from "../../headerComponent";
@@ -20,13 +21,15 @@ import {  endPoints } from "../../config/endPoints";
 import SpinnerComponent from '../../common/spinner';
 import SideBar from '../../components/SideBar/SideBar';
 import { Dropdown } from "react-native-material-dropdown";
+import { ToastMessage } from '../../common/toast';
 export default class Temperature extends React.Component {
   constructor(props){
     super(props);
+    this.temperatureData = this.temperatureData.bind(this);
+    this.warmMyPlace = this.warmMyPlace.bind(this);
     // TODO userSelectedZoneName -> Hardcoded zoneName : which need to come to backend API
-    this.state = { temperature: {},userSelectedZoneName: "Sora", loader: true };
-    this.temperatureData = this.temperatureData.bind(this)
-  }   
+    this.state = { temperature: {},userSelectedZoneName: "Sora", loader: true, showToast: false };
+    }   
        componentDidMount() {
                  /* this._interval = setInterval(() => {
                     this.getTemperatureRecords();
@@ -60,7 +63,7 @@ export default class Temperature extends React.Component {
                          temperature: result,
                          loader: false
                        })
-                      }).catch(error => console.error(error));; 
+                      }).catch(error => ToastMessage(Toast, error ));; 
                  }
 
                  updateCurrentTemperature(coolAbove, heatBelow, zone_id) {
@@ -70,9 +73,10 @@ export default class Temperature extends React.Component {
                     "heat_below": heatBelow
                    })
                      .then(data => {
+                       ToastMessage(Toast, 'Success!');
                        this.getTemperatureRecords();
                      }) 
-                     .catch(error => console.error(error));
+                     .catch(error =>  ToastMessage(Toast, error ));
                  }
                 // Warm my place  -> set heating point to currentTemperature - 15 F
                 // This method is used to warm the place
@@ -81,7 +85,7 @@ export default class Temperature extends React.Component {
                   let zone_id = temperature.zone_id
                   let coolAboveTemperature = temperature.cool_above ;
                   // heatBelowTemperature = (room_temperature) Current Temperature - 15 
-                  let heatBelowTemperature = temperature.room_temperature - 15;  
+                  let heatBelowTemperature = temperature.room_temperature - 1; 
                   this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature,zone_id);
                    }
                 // This method is used to cool the place
@@ -91,16 +95,18 @@ export default class Temperature extends React.Component {
                   let zone_id = temperature.zone_id
                    // heatBelowTemperature = (room_temperature) Current Temperature - 15 
                   let coolAboveTemperature = temperature.cool_above ;
-                  let heatBelowTemperature = temperature.room_temperature + 15;  
+                  let heatBelowTemperature = temperature.room_temperature + 1;  
                   this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature, zone_id);
                  }
                  render() {
                    const { navigation } = this.props;
                    const displayHeader = { BackBtn: false, MenuBtn: true };
+                   const { loader , showToast} = this.state;
                    if (this.state.loader) {
                      return <SpinnerComponent/>;
                    }
                    
+                   // Toast
                    return (
                     <Drawer
                     ref={(ref) => { this.drawer = ref; }}
@@ -162,6 +168,7 @@ export default class Temperature extends React.Component {
                              </Button>
                            </TouchableOpacity>
                          </View>
+                  
                        </Content>
                        <FooterComponent navigation={navigation} />
                                 </Container>

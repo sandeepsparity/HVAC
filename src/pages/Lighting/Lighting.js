@@ -21,7 +21,7 @@ export default class Lighting extends Component {
               <HeaderComponent displayHeader={displayHeader} navigation={navigation} />
               <Content padder>
                 <View>
-                 
+                   <Text> Lighting </Text>
                 </View>
               </Content>
               <FooterComponent navigation={navigation} />
