@@ -28,13 +28,14 @@ export default class Temperature extends React.Component {
     this.temperatureData = this.temperatureData.bind(this)
   }   
        componentDidMount() {
-                  this._interval = setInterval(() => {
+                 /* this._interval = setInterval(() => {
                     this.getTemperatureRecords();
-                  }, 5000);
+                  }, 5000); */
+                  this.getTemperatureRecords();
                   
                  }
                  componentWillUnmount() {
-                  clearInterval(this._interval);
+                //  clearInterval(this._interval);
                 }
                 closeDrawer = () => {
                   this.drawer._root.close()
@@ -42,7 +43,7 @@ export default class Temperature extends React.Component {
                 openDrawer = () => {
                   this.drawer._root.open()
                 };
-                temperatureData(userSelectedZoneParameters, userSelectedZoneName){
+                temperatureData(userSelectedZoneParameters){
                   this.setState({
                     temperature : userSelectedZoneParameters,
                     userSelectedZoneName:userSelectedZoneParameters.zoneName 
@@ -103,7 +104,11 @@ export default class Temperature extends React.Component {
                    return (
                     <Drawer
                     ref={(ref) => { this.drawer = ref; }}
-                    content={<SideBar navigation={navigation} closeDrawer = {this.closeDrawer} temperatureData = {this.temperatureData}/>}
+                    content={<SideBar 
+                      navigation={navigation}
+                    closeDrawer = {this.closeDrawer}
+                    temperature={this.state.temperature}
+                     temperatureData = {this.temperatureData}/>}
                     onClose={() => this.closeDrawer()} >
                    <Container>
                        <HeaderComponent displayHeader={displayHeader} navigation={navigation}  openDrawer = {this.openDrawer}/>
