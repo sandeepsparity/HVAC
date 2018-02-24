@@ -78,14 +78,24 @@ export default class Temperature extends React.Component {
                      }) 
                      .catch(error =>  ToastMessage(Toast, error ));
                  }
+
+
+                 resetTemperature(){
+                  let temperature = this.state.temperature;
+                  let zone_id = temperature.zone_id
+                   // heatBelowTemperature = (room_temperature) Current Temperature - 15 
+                  let coolAboveTemperature = parseInt(temperature.room_temperature) + 1;
+                  let heatBelowTemperature = parseInt(temperature.room_temperature) - 1;  
+                  this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature, zone_id);
+                 }
                 // Warm my place  -> set heating point to currentTemperature - 15 F
                 // This method is used to warm the place
                  warmMyPlace() {
                   let temperature = this.state.temperature;
                   let zone_id = temperature.zone_id
-                  let coolAboveTemperature = temperature.cool_above ;
+                  let coolAboveTemperature = parseInt(temperature.cool_above) ;
                   // heatBelowTemperature = (room_temperature) Current Temperature - 15 
-                  let heatBelowTemperature = temperature.room_temperature - 1; 
+                  let heatBelowTemperature = parseInt(temperature.heat_below) - 1; 
                   this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature,zone_id);
                    }
                 // This method is used to cool the place
@@ -94,8 +104,8 @@ export default class Temperature extends React.Component {
                   let temperature = this.state.temperature;
                   let zone_id = temperature.zone_id
                    // heatBelowTemperature = (room_temperature) Current Temperature - 15 
-                  let coolAboveTemperature = temperature.cool_above ;
-                  let heatBelowTemperature = temperature.room_temperature + 1;  
+                  let coolAboveTemperature = parseInt(temperature.cool_above) + 1 ;
+                  let heatBelowTemperature = parseInt(temperature.heat_below) ;  
                   this.updateCurrentTemperature(coolAboveTemperature, heatBelowTemperature, zone_id);
                  }
                  render() {
@@ -154,7 +164,7 @@ export default class Temperature extends React.Component {
                              </Button>
                            </TouchableOpacity>
                            <TouchableOpacity>
-                             <Button block style={styles.buttonSecondary}>
+                             <Button block style={styles.buttonSecondary} onPress={() => this.resetTemperature()}>
                                <Text style={styles.textFont}>
                                  I'M COMFY
                                </Text>
