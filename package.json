@@ -26,13 +26,16 @@
     "@expo/vector-icons": "^6.3.1",
     "expo": "14.0.2",
     "moment-timezone": "^0.5.14",
-    "native-base": "^2.3.9",
+    "native-base": "2.3.8",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-fabric": "^0.5.1",
     "react-native-material-dropdown": "^0.9.0",
     "react-native-slider": "^0.11.0",
     "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "^1.1.1"
+    "react-navigation": "^1.1.1",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "watchman": "^1.0.0"
   }
 }

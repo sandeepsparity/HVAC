@@ -1712,7 +1712,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C08D72F8B82F2E134902875 /* Pods-HVAC.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1742,7 +1741,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF72AF988A1B0618A0F515B4 /* Pods-HVAC.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

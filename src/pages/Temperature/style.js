@@ -52,30 +52,12 @@ export default StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "black"
   },
-  buttonIncrement: {
-    marginBottom: 15,
-    backgroundColor: "rgb(241, 101, 39)",
-    marginLeft: 20,
-    marginRight: 20,
-    height: 60
-  },
-  buttonSecondary: {
-    marginBottom: 15,
-    backgroundColor: "#b1b5b8",
-    marginLeft: 20,
-    marginRight: 20,
-    height: 60
-  },
-  buttonDecrement: {
-    marginBottom: 15,
-    backgroundColor: "rgb(106, 194, 191)",
-    marginLeft: 20,
-    marginRight: 20,
-    height: 60
-  },
   centerAlign:{
     textAlign:'center',
     color:'#b1b5b8',
     fontFamily: Fonts.MontSerratBold
+  },
+  processingRequest:{
+    fontSize:14
   }
 });

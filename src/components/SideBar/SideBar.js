@@ -1,58 +1,26 @@
 import React from "react";
 import { StyleSheet,AppRegistry } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
-const routes = ["Home", "Chat", "Profile"];
-const zoneslist = [
-    {
-        cool_above: 76,
-        zone_id: "1001",
-        hvac_status: "heating",
-        room_temperature: 75,
-        temperature_scale: "F",
-        heat_below: 73,
-        pressure: 3.95,
-        zoneName:'Sora'
-        },
-        {
-            cool_above: 74,
-            zone_id: "1001",
-            hvac_status: "heating",
-            room_temperature: 79,
-            temperature_scale: "F",
-            heat_below: 73,
-            pressure: 3.95,
-            zoneName:'Kira Office'
-            },
-            {
-                cool_above: 72,
-                zone_id: "1001",
-                hvac_status: "heating",
-                room_temperature: 60,
-                temperature_scale: "F",
-                heat_below: 73,
-                pressure: 3.95,
-                zoneName:'Ex Office Testing'
-                }
-]
 export default class SideBar extends React.Component {
     closeDrawer(userSelectedZoneParameters){
         this.props.closeDrawer();
-        this.props.temperatureData(userSelectedZoneParameters);
+        this.props.callbackForSelectedZone(userSelectedZoneParameters);
     }
   render() {
-      zoneslist[0] = this.props.temperature;
-      zoneslist[0].zoneName = 'Sora';
+    let zoneslist = this.props.temperature;
+    //To Do : need to get this name from backend
+
     return (
       <Container style={styles.container}>
         <Content>
           <List
-            dataArray={zoneslist}
+            dataArray={this.props.temperature}
             renderRow={zone => {
               return (
                 <ListItem
                   button
                   onPress={() => this.closeDrawer(zone)}>
-                  <Text>{zone.zoneName}</Text>
+                  <Text>{zone.zone_name}</Text>
                 </ListItem>
               );
             }}
@@ -65,7 +33,7 @@ export default class SideBar extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: "#FAFAFA",
+    backgroundColor: "#FAFAFA",
     paddingTop:70
     }
 })
