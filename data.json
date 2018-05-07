@@ -451,6 +451,20 @@
       "optionName": "Galaxy Book",
       "mapName": "galaxy-s9",
       "offersText": "Testing 123",
+     "storageData":[{
+      "size_0":"10.6' 64GB",
+      "price": "$649.99"
+     },{
+      "size_0":"10.6' 128GB",
+      "price": "$729.99"
+     },
+                   {
+      "size_0":"10.6' 128GB",
+      "price": "$1299.99"
+     },{
+      "size_0":"10.6' 256GB",
+      "price": "$1329.99"
+     }],
       "skipLevel": 0,
       "modelCode": [
         "SM-G960UZBAUSC",
@@ -1008,6 +1022,20 @@
       "id": 9106,
       "optionName": "Galaxy Tab 2",
       "offersText": "Galaxy Tab offer",
+       "storageData":[{
+      "size_0":"10.6' 64GB",
+      "price": "$649.99"
+     },{
+      "size_0":"10.6' 128GB",
+      "price": "$729.99"
+     },
+                   {
+      "size_0":"10.6' 128GB",
+      "price": "$1299.99"
+     },{
+      "size_0":"10.6' 256GB",
+      "price": "$1329.99"
+     }]
       "mapName": "galaxy-s9+",
       "skipLevel": 0,
       "modelCode": [
